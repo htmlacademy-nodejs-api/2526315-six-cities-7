@@ -23,14 +23,9 @@ export class TSVFileReader implements FileReader {
     }
   }
 
-  private parseRawDataToOffers(): OfferType[] {
-    console.log('?????', this.rawData);
-
-    const splitted = this.rawData.split('\n');
-
-    console.log('splitted', splitted);
-
-    return splitted
+  private parseRawDataToOffers(): Array<OfferType> {
+    return this.rawData
+      .split('\n')
       .filter((row) => row.trim().length > 0)
       .map((line) => this.parseLineToOffer(line));
   }
@@ -117,7 +112,7 @@ export class TSVFileReader implements FileReader {
     this.rawData = readFileSync(this.filename, { encoding: 'utf-8' });
   }
 
-  public toArray(): OfferType[] {
+  public toArray(): Array<OfferType> {
     this.validateRawData();
     return this.parseRawDataToOffers();
   }
