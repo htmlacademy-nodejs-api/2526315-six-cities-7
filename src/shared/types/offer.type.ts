@@ -4,7 +4,7 @@ import {CityType} from './city.type.js';
 import {AmenitiesEnum, PropertyTypeEnum} from './enums.js';
 
 export type OfferType = {
-  id:string;
+  id?:string;
   title: string;
   description: string;
   postDate: Date;
@@ -14,7 +14,7 @@ export type OfferType = {
   isPremium: boolean;
   isFavorite:boolean;
   rating: number;
-  offerType: PropertyTypeEnum;
+  propertyType: PropertyTypeEnum;
   numberOfRooms: number;
   numberOfGuests:number;
   price: number;
