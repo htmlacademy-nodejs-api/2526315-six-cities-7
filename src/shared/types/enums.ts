@@ -1,17 +1,17 @@
 export enum CityNameEnum {
   Paris = 'Paris',
-  Cologne= 'Cologne',
-  Brussels= 'Brussels',
-  Amsterdam= 'Amsterdam',
-  Hamburg= 'Hamburg',
-  Dusseldorf= 'Dusseldorf',
+  Cologne = 'Cologne',
+  Brussels = 'Brussels',
+  Amsterdam = 'Amsterdam',
+  Hamburg = 'Hamburg',
+  Dusseldorf = 'Dusseldorf',
 }
 
 export enum PropertyTypeEnum {
-  apartment ='apartment',
-  house ='house',
-  room ='room',
-  hotel ='hotel'
+  apartment = 'apartment',
+  house = 'house',
+  room = 'room',
+  hotel = 'hotel',
 }
 
 export enum AmenitiesEnum {
@@ -21,11 +21,10 @@ export enum AmenitiesEnum {
   BabySeat = 'Baby seat',
   Washer = 'Washer',
   Towels = 'Towels',
-  Fridge = 'Fridge'
+  Fridge = 'Fridge',
 }
 
-
-export enum UserTypeEnum{
-  basic='basic',
-  pro='pro'
+export enum UserTypeEnum {
+  basic = 'basic',
+  pro = 'pro',
 }

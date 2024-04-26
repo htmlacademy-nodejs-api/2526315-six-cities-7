@@ -6,4 +6,4 @@ export type CommentType = {
   postDate: Date;
   rating: number;
   user: UserType;
-}
+};

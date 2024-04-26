@@ -1,11 +1,10 @@
-import {Command} from './command.interface.js';
-import {readFileSync} from 'node:fs';
-import {resolve} from 'node:path';
-
+import { Command } from './command.interface.js';
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 
 type PackageJSONConfig = {
   version: string;
-}
+};
 
 function isPackageJSONConfig(value: unknown): value is PackageJSONConfig {
   return (
@@ -16,24 +15,23 @@ function isPackageJSONConfig(value: unknown): value is PackageJSONConfig {
   );
 }
 
-export class VersionCommand implements Command{
-
+export class VersionCommand implements Command {
   constructor(private readonly filePath: string = 'package.json') {}
 
   private readVersion(): string {
-    const jsonContent = readFileSync(resolve(this.filePath), {encoding: 'utf8'});
+    const jsonContent = readFileSync(resolve(this.filePath), {
+      encoding: 'utf8',
+    });
     const importedContent: unknown = JSON.parse(jsonContent);
 
-
-    if (! isPackageJSONConfig(importedContent)) {
+    if (!isPackageJSONConfig(importedContent)) {
       throw new Error('Failed to parse json content.');
     }
 
     return importedContent.version;
   }
 
-
-  public getName(): string{
+  public getName(): string {
     return '--version';
   }
 
@@ -49,5 +47,4 @@ export class VersionCommand implements Command{
       }
     }
   }
-
 }
