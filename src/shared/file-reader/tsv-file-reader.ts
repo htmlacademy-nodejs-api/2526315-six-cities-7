@@ -1,16 +1,16 @@
 import { readFileSync } from 'node:fs';
 
 import { FileReader } from './file-reader.interface.js';
-import { OfferType } from '../types/offer.type.js';
+import { OfferInterface } from '../types/offer.interface.js';
 import {
   AmenitiesEnum,
   CityNameEnum,
   PropertyTypeEnum,
   UserTypeEnum,
 } from '../types/enums.js';
-import { UserType } from '../types/user.type.js';
+import { UserInterface } from '../types/user.interface.js';
 import { CoordinatesType } from '../types/coordinates.type.js';
-import { Cities, CityType } from '../types/city.type.js';
+import { CITIES, CityType } from '../types/city.type.js';
 
 export class TSVFileReader implements FileReader {
   private rawData = '';
@@ -23,15 +23,16 @@ export class TSVFileReader implements FileReader {
     }
   }
 
-  private parseRawDataToOffers(): Array<OfferType> {
+  private parseRawDataToOffers(): Array<OfferInterface> {
     return this.rawData
       .split('\n')
       .filter((row) => row.trim().length > 0)
       .map((line) => this.parseLineToOffer(line));
   }
 
-  private parseLineToOffer(line: string): OfferType {
+  private parseLineToOffer(line: string): OfferInterface {
     const [
+      postId,
       title,
       description,
       createdDate,
@@ -47,32 +48,39 @@ export class TSVFileReader implements FileReader {
       price,
       amenities,
       name,
+      userId,
       email,
       avatarPath,
       userType,
+      password,
       numberOfComments,
       coordinates,
     ] = line.split('\t');
 
     return {
+      id: postId,
       title,
       description,
       postDate: new Date(createdDate),
       city: this.parseCity(city as CityNameEnum),
       previewImage,
-      images: this.parseCategories(images),
+      images: this.parseListString(images),
       isPremium: !!isPremium,
       isFavorite: !!isFavorite,
       rating: parseFloat(rating),
-      propertyType:
-        PropertyTypeEnum[
-          propertyType as 'apartment' | 'house' | 'room' | 'hotel'
-        ],
+      propertyType: propertyType as PropertyTypeEnum,
       numberOfRooms: parseInt(numberOfRooms, 10),
       numberOfGuests: parseInt(numberOfGuests, 10),
       price: parseInt(price, 10),
-      amenities: this.parseAmenities(amenities) as AmenitiesEnum[],
-      author: this.parseUser(name, email, avatarPath, userType as UserTypeEnum),
+      amenities: this.parseListString(amenities) as AmenitiesEnum[],
+      author: this.parseUser(
+        name,
+        userId,
+        email,
+        avatarPath,
+        password,
+        userType as UserTypeEnum,
+      ),
       numberOfComments: parseInt(numberOfComments, 10),
       coordinates: this.parseCoordinates(coordinates),
     };
@@ -84,35 +92,32 @@ export class TSVFileReader implements FileReader {
   }
 
   private parseCity(city: CityNameEnum): CityType {
-    const foundCity = Cities.find((item) => item.name === city);
-    if (foundCity) {
-      return foundCity;
+    if (Object.keys(CITIES).includes(city)) {
+      return { name: city, coordinates: CITIES[city] };
     }
     return { name: city, coordinates: { latitude: 0, longitude: 0 } };
   }
 
-  private parseCategories(categoriesString: string): string[] {
+  private parseListString(categoriesString: string): string[] {
     return categoriesString.split(';').map((item) => item);
-  }
-
-  private parseAmenities(amenitiesString: string): string[] {
-    return amenitiesString.split(';').map((item) => item);
   }
 
   private parseUser(
     name: string,
+    userId: string,
     email: string,
     avatarPath: string,
+    password: string,
     userType: UserTypeEnum,
-  ): UserType {
-    return { name, email, avatarPath, userType };
+  ): UserInterface {
+    return { name, id: userId, email, avatarPath, password, userType };
   }
 
   public read(): void {
     this.rawData = readFileSync(this.filename, { encoding: 'utf-8' });
   }
 
-  public toArray(): Array<OfferType> {
+  public toArray(): Array<OfferInterface> {
     this.validateRawData();
     return this.parseRawDataToOffers();
   }
