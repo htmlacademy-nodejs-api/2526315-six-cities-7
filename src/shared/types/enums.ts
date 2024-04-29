@@ -8,10 +8,10 @@ export enum CityNameEnum {
 }
 
 export enum PropertyTypeEnum {
-  apartment = 'apartment',
-  house = 'house',
-  room = 'room',
-  hotel = 'hotel',
+  Apartment = 'apartment',
+  House = 'house',
+  Room = 'room',
+  Hotel = 'hotel',
 }
 
 export enum AmenitiesEnum {
@@ -25,6 +25,6 @@ export enum AmenitiesEnum {
 }
 
 export enum UserTypeEnum {
-  basic = 'basic',
-  pro = 'pro',
+  Basic = 'обычный',
+  Pro = 'pro',
 }
