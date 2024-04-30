@@ -1,4 +1,4 @@
-import { UserInterface } from './user.interface.js';
+import { UserInterface } from './index.js';
 
 export interface CommentInterface {
   id: string;

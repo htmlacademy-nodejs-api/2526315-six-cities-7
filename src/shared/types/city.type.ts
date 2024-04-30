@@ -1,4 +1,4 @@
-import { CoordinatesType } from './coordinates.type.js';
+import { CoordinatesType } from './index.js';
 import { CityNameEnum } from './enums.js';
 
 export type CityType = {
