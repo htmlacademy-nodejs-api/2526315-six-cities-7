@@ -1,16 +1,16 @@
 import EventEmitter from 'node:events';
 import { createReadStream } from 'node:fs';
 import { FileReader } from './file-reader.interface.js';
-import { OfferInterface } from '../types/offer.interface.js';
+import { OfferInterface } from '../../types/offer.interface.js';
 import {
   AmenitiesEnum,
   CityNameEnum,
   PropertyTypeEnum,
   UserTypeEnum,
-} from '../types/enums.js';
-import { UserInterface } from '../types/user.interface.js';
-import { CoordinatesType } from '../types/coordinates.type.js';
-import { CITIES, CityType } from '../types/city.type.js';
+} from '../../types/enums.js';
+import { UserInterface } from '../../types/user.interface.js';
+import { CoordinatesType } from '../../types/coordinates.type.js';
+import { CITIES, CityType } from '../../types/city.type.js';
 
 export class TSVFileReader extends EventEmitter implements FileReader {
   private CHUNK_SIZE = 16384; // 16KB

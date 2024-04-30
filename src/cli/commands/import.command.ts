@@ -1,5 +1,5 @@
 import { Command } from './command.interface.js';
-import { TSVFileReader } from '../../shared/file-reader/index.js';
+import { TSVFileReader } from '../../shared/libs/file-reader/index.js';
 import { OfferInterface } from '../../shared/types/offer.interface.js';
 import { getErrorMessage } from '../../shared/helpers/index.js';
 
