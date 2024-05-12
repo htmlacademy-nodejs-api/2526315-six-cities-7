@@ -2,6 +2,7 @@
 
 import {
   CLIApplication,
+  GenerateCommand,
   HelpCommand,
   ImportCommand,
   VersionCommand,
@@ -14,9 +15,13 @@ function bootstrap() {
     new HelpCommand(),
     new VersionCommand(),
     new ImportCommand(),
+    new GenerateCommand(),
   ]);
 
   cliApplication.processCommand(process.argv);
 }
 
 bootstrap();
+
+// npm run ts ./src/main.cli.ts -- --generate 10 ./mocks/generated/new-data.tsv http://localhost:3123/api
+// npm run ts ./src/main.cli.ts -- --import ./mocks/generated/new-data.tsv

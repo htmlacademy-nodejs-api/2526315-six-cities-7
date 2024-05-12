@@ -1,7 +1,7 @@
-import { UserInterface } from './user.interface.js';
-import { CoordinatesType } from './coordinates.type.js';
-import { CityType } from './city.type.js';
+import { UserInterface } from './index.js';
+import { CoordinatesType } from './index.js';
 import { AmenitiesEnum, PropertyTypeEnum } from './enums.js';
+import { CityType } from './index.js';
 
 export interface OfferInterface {
   id: string;
