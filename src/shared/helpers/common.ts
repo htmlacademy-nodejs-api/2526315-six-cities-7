@@ -13,13 +13,12 @@ export function getRandomItems<T>(items: T[]): T[] {
   return items.slice(startPosition, endPosition);
 }
 export function getNumberOfDifferentItems<T>(items: T[], number: number): T[] {
-  const arr: T[] = [];
-  for (let i = 0; i < number; i++) {
+  const result: Set<T> = new Set();
+  while (result.size !== number) {
     const random = generateRandomValue(0, items.length - 1);
-    arr.push(items[random]);
-    items = items.filter((item) => item !== items[random]);
+    result.add(items[random]);
   }
-  return arr;
+  return Array.from(result);
 }
 
 export function getRandomItem<T>(items: T[]): T {
