@@ -5,3 +5,4 @@ export { OfferInterface } from './offer.interface.js';
 export { UserInterface } from './user.interface.js';
 
 export { MockServerData } from './mock-server-data.type.js';
+export { Component } from './component.enum.js';
