@@ -38,7 +38,6 @@ export class TSVFileReader extends EventEmitter implements FileReader {
       price,
       amenities,
       name,
-      userId,
       email,
       avatarPath,
       userType,
@@ -65,7 +64,6 @@ export class TSVFileReader extends EventEmitter implements FileReader {
       amenities: this.parseListString(amenities) as AmenitiesEnum[],
       author: this.parseUser(
         name,
-        userId,
         email,
         avatarPath,
         password,
@@ -94,13 +92,12 @@ export class TSVFileReader extends EventEmitter implements FileReader {
 
   private parseUser(
     name: string,
-    userId: string,
     email: string,
     avatarPath: string,
     password: string,
     userType: UserTypeEnum,
   ): UserInterface {
-    return { name, id: userId, email, avatarPath, password, userType };
+    return { name, email, avatarPath, password, userType };
   }
 
   public async read(): Promise<void> {

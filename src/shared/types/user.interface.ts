@@ -1,7 +1,8 @@
 import { UserTypeEnum } from './enums.js';
 
 export interface UserInterface {
-  id: string;
+  // TODo: commented out due to warning in user.model.ts
+  // id: string;
   name: string;
   email: string;
   avatarPath: string;
