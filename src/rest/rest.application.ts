@@ -35,9 +35,9 @@ export class RestApplication {
     this.logger.info('Init database completed');
 
     const user = await UserModel.create({
-      name: 'Evgeniy',
-      email: 'test@email.local',
-      avatarPath: '/path/to/avatar',
+      name: 'Evgeniy1',
+      email: 'test@gmail.com',
+      avatarPath: '2/path/to/avatar',
       password: '12345',
       userType: 'обычный',
     });

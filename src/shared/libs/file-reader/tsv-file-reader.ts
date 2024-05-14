@@ -14,7 +14,6 @@ import { CITIES, CityType } from '../../types/index.js';
 
 export class TSVFileReader extends EventEmitter implements FileReader {
   private CHUNK_SIZE = 16384; // 16KB
-  // private rawData = '';
 
   constructor(private readonly filename: string) {
     super();
@@ -22,7 +21,7 @@ export class TSVFileReader extends EventEmitter implements FileReader {
 
   private parseLineToOffer(line: string): OfferInterface {
     const [
-      postId,
+      // postId,
       title,
       description,
       createdDate,
@@ -41,13 +40,12 @@ export class TSVFileReader extends EventEmitter implements FileReader {
       email,
       avatarPath,
       userType,
-      password,
       numberOfComments,
       coordinates,
     ] = line.split('\t');
 
     return {
-      id: postId,
+      // id: postId,
       title,
       description,
       postDate: new Date(createdDate),
@@ -62,13 +60,7 @@ export class TSVFileReader extends EventEmitter implements FileReader {
       numberOfGuests: parseInt(numberOfGuests, 10),
       price: parseInt(price, 10),
       amenities: this.parseListString(amenities) as AmenitiesEnum[],
-      author: this.parseUser(
-        name,
-        email,
-        avatarPath,
-        password,
-        userType as UserTypeEnum,
-      ),
+      author: this.parseUser(name, email, avatarPath, userType as UserTypeEnum),
       numberOfComments: parseInt(numberOfComments, 10),
       coordinates: this.parseCoordinates(coordinates),
     };
@@ -94,10 +86,9 @@ export class TSVFileReader extends EventEmitter implements FileReader {
     name: string,
     email: string,
     avatarPath: string,
-    password: string,
     userType: UserTypeEnum,
   ): UserInterface {
-    return { name, email, avatarPath, password, userType };
+    return { name, email, avatarPath, userType };
   }
 
   public async read(): Promise<void> {

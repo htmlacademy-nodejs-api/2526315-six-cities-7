@@ -4,7 +4,7 @@ import { AmenitiesEnum, PropertyTypeEnum } from './enums.js';
 import { CityType } from './index.js';
 
 export interface OfferInterface {
-  id: string;
+  // id: string;
   title: string;
   description: string;
   postDate: Date;

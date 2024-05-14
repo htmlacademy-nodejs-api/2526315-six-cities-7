@@ -6,6 +6,6 @@ export interface UserInterface {
   name: string;
   email: string;
   avatarPath: string;
-  password: string;
+  // password: string;
   userType: UserTypeEnum;
 }

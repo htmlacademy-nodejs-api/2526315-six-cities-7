@@ -1,3 +1,5 @@
+// unused. HERE FOR EXAMPLE!!!!
+
 import { Schema, Document, model } from 'mongoose';
 import { UserInterface } from '../../types/index.js';
 
