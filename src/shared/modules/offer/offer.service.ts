@@ -36,12 +36,6 @@ export class DefaultOfferService implements OfferService {
     offerName: string,
     dto: CreateOfferDto,
   ): Promise<DocumentType<OfferEntity>> {
-    const existedOffer = await this.findByOfferName(offerName);
-
-    if (existedOffer) {
-      return existedOffer;
-    }
-
-    return this.create(dto);
+    return (await this.findByOfferName(offerName)) || (await this.create(dto));
   }
 }
