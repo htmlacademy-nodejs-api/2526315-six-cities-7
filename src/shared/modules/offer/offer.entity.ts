@@ -6,8 +6,11 @@ import {
   Ref,
 } from '@typegoose/typegoose';
 
-import { CityType, CoordinatesType } from '../../types/index.js';
-import { AmenitiesEnum, PropertyTypeEnum } from '../../types/enums.js';
+import {
+  AmenitiesEnum,
+  CityNameEnum,
+  PropertyTypeEnum,
+} from '../../types/enums.js';
 import { UserEntity } from '../user/index.js';
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-declaration-merging
@@ -15,25 +18,27 @@ export interface OfferEntity extends defaultClasses.Base {}
 
 @modelOptions({
   schemaOptions: {
-    collection: 'categories',
+    collection: 'offers',
     timestamps: true,
   },
 })
 // eslint-disable-next-line @typescript-eslint/no-unsafe-declaration-merging
 export class OfferEntity extends defaultClasses.TimeStamps {
   @prop({ required: true, trim: true })
-  public title!: string;
+  public title: string;
 
-  @prop({ trim: true })
-  public description!: string;
+  @prop({ required: true, trim: true })
+  public description: string;
 
   @prop()
-  public postDate!: Date;
+  public postDate: Date;
 
-  //
-  @prop({ required: true })
-  public city: CityType;
-  //
+  @prop({
+    required: true,
+    type: () => String,
+    enum: CityNameEnum,
+  })
+  public city: CityNameEnum;
 
   @prop({ required: true })
   public previewImage!: string;
@@ -44,13 +49,14 @@ export class OfferEntity extends defaultClasses.TimeStamps {
   @prop({ required: true })
   public isPremium: boolean;
 
-  @prop({ required: true })
-  public isFavorite: boolean;
+  // @prop({ required: true })
+  // public isFavorite: boolean;
 
   @prop({ required: true })
   public rating: number;
 
   @prop({
+    required: true,
     type: () => String,
     enum: PropertyTypeEnum,
   })
@@ -62,26 +68,25 @@ export class OfferEntity extends defaultClasses.TimeStamps {
   @prop({ required: true })
   public numberOfGuests: number;
 
-  @prop()
-  public price!: number;
+  @prop({ required: true })
+  public price: number;
 
   @prop({
     type: () => Array<string>,
-    enum: AmenitiesEnum,
   })
   public amenities: AmenitiesEnum[];
+
+  @prop({ required: true })
+  public numberOfComments: number;
 
   @prop({
     ref: UserEntity,
     required: true,
   })
-  public userId!: Ref<UserEntity>;
+  public userId: Ref<UserEntity>;
 
-  @prop({ required: true })
-  public numberOfComments: number;
-
-  @prop({})
-  public coordinates: CoordinatesType;
+  // @prop({})
+  // public coordinates: CoordinatesType;
 }
 
 export const OfferModel = getModelForClass(OfferEntity);

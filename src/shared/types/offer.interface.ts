@@ -1,14 +1,13 @@
 import { UserInterface } from './index.js';
-import { CoordinatesType } from './index.js';
-import { AmenitiesEnum, PropertyTypeEnum } from './enums.js';
-import { CityType } from './index.js';
+
+import { AmenitiesEnum, CityNameEnum, PropertyTypeEnum } from './enums.js';
 
 export interface OfferInterface {
   // id: string;
   title: string;
   description: string;
   postDate: Date;
-  city: CityType;
+  city: CityNameEnum;
   previewImage: string;
   images: string[];
   isPremium: boolean;
@@ -21,5 +20,5 @@ export interface OfferInterface {
   amenities: AmenitiesEnum[];
   author: UserInterface;
   numberOfComments: number;
-  coordinates: CoordinatesType;
+  // coordinates: CoordinatesType;
 }
