@@ -1,3 +1,5 @@
+import { CoordinatesType } from '../types/index.js';
+
 export function generateRandomValue(
   min: number,
   max: number,
@@ -27,4 +29,13 @@ export function getRandomItem<T>(items: T[]): T {
 
 export function getErrorMessage(error: unknown): string {
   return error instanceof Error ? error.message : '';
+}
+export function generateRandomCoordinatesForTheOffer(
+  coords: CoordinatesType,
+): string {
+  const random = generateRandomValue(-0.00009, 0.00009, 6);
+  const randomLat = (coords.latitude + random).toFixed(6);
+  const randomLon = (coords.longitude + random).toFixed(6);
+
+  return `${randomLat};${randomLon}`;
 }

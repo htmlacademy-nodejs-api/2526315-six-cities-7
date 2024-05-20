@@ -32,7 +32,7 @@ export class UserEntity extends defaultClasses.TimeStamps {
   public userType: UserTypeEnum;
 
   @prop({ required: true })
-  private password?: string;
+  private password: string;
 
   constructor(userData: UserInterface) {
     super();

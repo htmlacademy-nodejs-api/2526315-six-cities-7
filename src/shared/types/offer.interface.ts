@@ -1,4 +1,4 @@
-import { UserInterface } from './index.js';
+import { CoordinatesType, UserInterface } from './index.js';
 
 import { AmenitiesEnum, CityNameEnum, PropertyTypeEnum } from './enums.js';
 
@@ -20,5 +20,5 @@ export interface OfferInterface {
   amenities: AmenitiesEnum[];
   author: UserInterface;
   numberOfComments: number;
-  // coordinates: CoordinatesType;
+  offerCoordinates: CoordinatesType;
 }

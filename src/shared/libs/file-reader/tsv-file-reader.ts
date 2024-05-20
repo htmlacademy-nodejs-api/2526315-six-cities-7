@@ -1,7 +1,7 @@
 import EventEmitter from 'node:events';
 import { createReadStream } from 'node:fs';
 import { FileReader } from './file-reader.interface.js';
-import { OfferInterface } from '../../types/index.js';
+import { CoordinatesType, OfferInterface } from '../../types/index.js';
 import {
   AmenitiesEnum,
   CityNameEnum,
@@ -9,8 +9,6 @@ import {
   UserTypeEnum,
 } from '../../types/enums.js';
 import { UserInterface } from '../../types/index.js';
-// import { CoordinatesType } from '../../types/index.js';
-// import { CITIES, CityType } from '../../types/index.js';
 
 export class TSVFileReader extends EventEmitter implements FileReader {
   private CHUNK_SIZE = 16384; // 16KB
@@ -21,7 +19,6 @@ export class TSVFileReader extends EventEmitter implements FileReader {
 
   private parseLineToOffer(line: string): OfferInterface {
     const [
-      // postId,
       title,
       description,
       createdDate,
@@ -41,10 +38,10 @@ export class TSVFileReader extends EventEmitter implements FileReader {
       avatarPath,
       userType,
       numberOfComments,
+      offerCoordinates,
     ] = line.split('\t');
 
     return {
-      // id: postId,
       title,
       description,
       postDate: new Date(createdDate),
@@ -61,20 +58,14 @@ export class TSVFileReader extends EventEmitter implements FileReader {
       amenities: this.parseListString(amenities) as AmenitiesEnum[],
       author: this.parseUser(name, email, avatarPath, userType as UserTypeEnum),
       numberOfComments: parseInt(numberOfComments, 10),
+      offerCoordinates: this.parseCoordinates(offerCoordinates),
     };
   }
 
-  // private parseCoordinates(coordinatesString: string): CoordinatesType {
-  //   const [latitude, longitude] = coordinatesString.split(';');
-  //   return { latitude: parseFloat(latitude), longitude: parseFloat(longitude) };
-  // }
-
-  // private parseCity(city: CityNameEnum): CityType {
-  //   if (Object.keys(CITIES).includes(city)) {
-  //     return { name: city, coordinates: CITIES[city] };
-  //   }
-  //   return { name: city, coordinates: { latitude: 0, longitude: 0 } };
-  // }
+  private parseCoordinates(coordinatesString: string): CoordinatesType {
+    const [latitude, longitude] = coordinatesString.split(';');
+    return { latitude: parseFloat(latitude), longitude: parseFloat(longitude) };
+  }
 
   private parseListString(categoriesString: string): string[] {
     return categoriesString.split(';').map((item) => item);
@@ -108,8 +99,8 @@ export class TSVFileReader extends EventEmitter implements FileReader {
         importedRowCount++;
 
         const parsedOffer = this.parseLineToOffer(completeRow);
-        this.emit('line', parsedOffer);
-
+        // previous import implementation
+        // this.emit('line', parsedOffer);
         await new Promise((resolve) => {
           this.emit('line', parsedOffer, resolve);
         });

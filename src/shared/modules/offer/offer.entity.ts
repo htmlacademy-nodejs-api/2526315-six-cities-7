@@ -12,6 +12,7 @@ import {
   PropertyTypeEnum,
 } from '../../types/enums.js';
 import { UserEntity } from '../user/index.js';
+import { CoordinatesType } from '../../types/index.js';
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-declaration-merging
 export interface OfferEntity extends defaultClasses.Base {}
@@ -49,9 +50,6 @@ export class OfferEntity extends defaultClasses.TimeStamps {
   @prop({ required: true })
   public isPremium: boolean;
 
-  // @prop({ required: true })
-  // public isFavorite: boolean;
-
   @prop({ required: true })
   public rating: number;
 
@@ -85,8 +83,10 @@ export class OfferEntity extends defaultClasses.TimeStamps {
   })
   public userId: Ref<UserEntity>;
 
-  // @prop({})
-  // public coordinates: CoordinatesType;
+  @prop({
+    required: true,
+  })
+  public offerCoordinates: CoordinatesType;
 }
 
 export const OfferModel = getModelForClass(OfferEntity);

@@ -25,3 +25,4 @@ bootstrap();
 
 // npm run ts ./src/main.cli.ts -- --generate 10 ./mocks/generated/new-data.tsv http://localhost:3123/api
 // npm run ts ./src/main.cli.ts -- --import ./mocks/generated/new-data.tsv
+// npm run ts ./src/main.cli.ts -- --import ./mocks/generated/new-data.tsv admin test localhost six-cities secret

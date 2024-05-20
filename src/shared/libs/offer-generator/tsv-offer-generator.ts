@@ -7,8 +7,9 @@ import {
   getRandomItem,
   getRandomItems,
   getNumberOfDifferentItems,
+  generateRandomCoordinatesForTheOffer,
 } from '../../helpers/index.js';
-import { MockServerData } from '../../types/index.js';
+import { CITIES, MockServerData } from '../../types/index.js';
 import {
   CityNameEnum,
   PropertyTypeEnum,
@@ -57,6 +58,9 @@ export class TSVOfferGenerator implements OfferGenerator {
     const avatarPath = getRandomItem(this.mockData.avatars);
     const userType = getRandomItem([UserTypeEnum.Pro, UserTypeEnum.Basic]);
     const commentsAmount = generateRandomValue(5, 50);
+    const offerCoordinates = generateRandomCoordinatesForTheOffer(
+      CITIES[city as CityNameEnum],
+    );
 
     return [
       title,
@@ -78,6 +82,7 @@ export class TSVOfferGenerator implements OfferGenerator {
       avatarPath,
       userType,
       commentsAmount,
+      offerCoordinates,
     ].join('\t');
   }
 }

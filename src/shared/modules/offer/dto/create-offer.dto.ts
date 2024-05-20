@@ -3,6 +3,7 @@ import {
   CityNameEnum,
   PropertyTypeEnum,
 } from '../../../types/enums.js';
+import { CoordinatesType } from '../../../types/index.js';
 
 export class CreateOfferDto {
   public title: string;
@@ -12,7 +13,6 @@ export class CreateOfferDto {
   public previewImage: string;
   public images: string[];
   public isPremium: boolean;
-  // public isFavorite: boolean;
   public rating: number;
   public propertyType: PropertyTypeEnum;
   public numberOfRooms: number;
@@ -21,6 +21,5 @@ export class CreateOfferDto {
   public amenities: AmenitiesEnum[];
   public numberOfComments: number;
   public userId: string;
-
-  // public coordinates: CoordinatesType;
+  public offerCoordinates: CoordinatesType;
 }

@@ -70,6 +70,7 @@ export class ImportCommand implements Command {
       price: offer.price,
       amenities: offer.amenities,
       numberOfComments: offer.numberOfComments,
+      offerCoordinates: offer.offerCoordinates,
     });
   }
 
