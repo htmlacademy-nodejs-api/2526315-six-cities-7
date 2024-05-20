@@ -13,13 +13,20 @@
       "apartmentId10"
     ],
     "titles": [
+      "Entire serviced apartment in Dubai, United Arab Emirates",
       "Luxurious Marina View Apartment",
       "Upgraded 2BR with Dubai Marina View",
       "2BR Elegant Marina View Apartment",
       "Lovely Modern 2BR | Walk to JBR Beach",
       "Beach+Pool+Tram. Spacious 1 bedroom in JBR.",
       "Stylish 2bd with great view in Marina View Tower",
-      "Luxurious 2 Bedroom At The Waves A"
+      "Luxurious 2 Bedroom At The Waves A",
+      "Entire rental unit in Dubai, United Arab Emirates",
+      "Amazing 2BR Apartment In Dubai Marina",
+      "Nice Apartment Varadero",
+      "Your Home at La Costa del Sol",
+      "Lovely apartment with house a mountain view"
+
     ],
     "descriptions": [
       "Self-catering apartments are fully furnished and well equipped. This affordable and luxurious waterfront Dubai apartment offers epic Marina views, fully equipped kitchen, swimming pool, gym, tennis court, steam and sauna rooms.",
@@ -28,7 +35,10 @@
       "Modern furniture, very comfortable beds and fully-equipped kitchen will make your stay pleasant and smooth.",
       "This apartment has an open floor plan and is modern and well-decorated. Relax in the inviting living room, which features a comfortable seating area, a flat-screen TV, and a dining space where you may dine with family and friends.",
       "A – your exquisite retreat in the heart of luxury and serenity! Located along the stunning waterfront of the Marina district, our accommodation offers a unique blend of modern comfort and breathtaking views that will make your stay truly unforgettable.",
-      "Stay in one of the most desired areas of Dubai, the Marina!"
+      "Stay in one of the most desired areas of Dubai, the Marina!",
+      "Spend relaxing vacations in this fantastic apartment in a private residential complex in Mijas",
+      "Being in a unique and cozy place to enjoy it with your family and friends, and make your visit to La Costa del Sol an unforgettable experience.",
+      "Fantastic apartment located in one of the typical neighborhoods of Malaga , the apartment has all the comforts to have a pleasant stay"
     ],
     "postDates": [
       "2022-03-06T07:10:33.283Z",
@@ -40,6 +50,7 @@
       "2023-06-06T04:57:12.283Z",
       "2022-08-06T03:34:11.283Z",
       "2023-06-06T08:39:15.283Z",
+      "2022-05-06T08:39:15.283Z",
       "2021-02-06T08:33:17.283Z",
       "2025-03-06T09:56:19.283Z"
     ],
@@ -63,7 +74,15 @@
       "preview-9.jpg",
       "preview-10.jpg",
       "preview-11.jpg",
-      "preview-12.jpg"
+      "preview-13.jpg",
+      "preview-14.jpg",
+      "preview-15.jpg",
+      "preview-16.jpg",
+      "preview-17.jpg",
+      "preview-18.jpg",
+      "preview-19.jpg",
+      "preview-20.jpg",
+      "preview-21.jpg"
     ],
     "images": [
       "image-1.jpg",
@@ -77,7 +96,16 @@
       "image-9.jpg",
       "image-10.jpg",
       "image-11.jpg",
-      "image-12.jpg"
+      "image-12.jpg",
+      "image-13.jpg",
+      "image-14.jpg",
+      "image-15.jpg",
+      "image-16.jpg",
+      "image-17.jpg",
+      "image-18.jpg",
+      "image-19.jpg",
+      "image-20.jpg",
+      "image-21.jpg"
     ],
     "isPremium": [
       "true",
@@ -147,7 +175,11 @@
       "Victor",
       "Anna",
       "Michael",
-      "Smth"
+      "Smth",
+      "Jordan",
+      "Pool",
+      "Zara",
+      "Niko"
     ],
     "userIds": [
       "userId1",
@@ -162,15 +194,19 @@
       "userId11"
     ],
     "emails": [
-      "snow@pisem.local",
-      "president@dka.local",
-      "fish@big.local",
-      "test@pisem.local",
-      "freedom@pisem.local",
-      "rolan@pochta.local",
-      "author@mir.local",
-      "test@lost.local",
-      "kujo-fan@story.local"
+      "snow@gmail.com",
+      "president@gmail.com",
+      "fish@gmail.com",
+      "test@gmail.com",
+      "freedom@gmail.com",
+      "rolan@gmail.com",
+      "author@gmail.com",
+      "test@gmail.com",
+      "kujo-fan@gmail.com",
+      "shaw@gmail.com",
+      "vino@gmail.com",
+      "nick@gmail.com"
+
     ],
     "avatars": [
       "avatar-1.jpg",
@@ -182,7 +218,14 @@
       "avatar-7.jpg",
       "avatar-8.jpg",
       "avatar-9.jpg",
-      "avatar-10.jpg"
+      "avatar-10.jpg",
+      "avatar-11.jpg",
+      "avatar-12.jpg",
+      "avatar-13.jpg",
+      "avatar-14.jpg",
+      "avatar-14.jpg",
+      "avatar-16.jpg",
+      "avatar-17.jpg"
     ],
     "userTypes": [
       "обычный",
@@ -207,7 +250,11 @@
       "22",
       "13",
       "51",
-      "27"
+      "27",
+      "22",
+      "43",
+      "11",
+      "7"
     ]
   }
 }
