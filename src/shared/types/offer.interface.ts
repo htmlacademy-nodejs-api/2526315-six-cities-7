@@ -3,7 +3,6 @@ import { CoordinatesType, UserInterface } from './index.js';
 import { AmenitiesEnum, CityNameEnum, PropertyTypeEnum } from './enums.js';
 
 export interface OfferInterface {
-  // id: string;
   title: string;
   description: string;
   postDate: Date;
