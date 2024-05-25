@@ -28,3 +28,8 @@ export enum UserTypeEnum {
   Basic = 'обычный',
   Pro = 'pro',
 }
+
+export enum SortType {
+  Down = -1,
+  Up = 1,
+}
