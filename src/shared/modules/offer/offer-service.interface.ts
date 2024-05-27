@@ -6,12 +6,7 @@ import { UpdateOfferDto } from './dto/update-offer.dto.js';
 
 export interface OfferService {
   create(dto: CreateOfferDto): Promise<DocumentType<OfferEntity>>;
-  findById(offerId: string): Promise<DocumentType<OfferEntity> | null>;
-  // findByOfferName(offerName: string): Promise<DocumentType<OfferEntity> | null>;
-  // findByOfferNameOrCreate(
-  //   offerName: string,
-  //   dto: CreateOfferDto,
-  // ): Promise<DocumentType<OfferEntity>>;
+  findById(offerId: string): Promise<DocumentType<OfferEntity>>;
   find(): Promise<DocumentType<OfferEntity>[]>;
   deleteById(offerId: string): Promise<DocumentType<OfferEntity> | null>;
   updateById(
@@ -20,4 +15,6 @@ export interface OfferService {
   ): Promise<DocumentType<OfferEntity> | null>;
   incCommentCount(offerId: string): Promise<DocumentType<OfferEntity> | null>;
   exists(documentId: string): Promise<boolean>;
+  getRating(offerId: string): Promise<number | null>;
+  updateRating(offerId: string): Promise<DocumentType<OfferEntity> | null>;
 }
