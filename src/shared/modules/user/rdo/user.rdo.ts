@@ -14,5 +14,5 @@ export class UserRdo {
   public avatarPath: string;
 
   @Expose()
-  public type: string;
+  public userType: string;
 }
