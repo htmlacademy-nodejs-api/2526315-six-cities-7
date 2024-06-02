@@ -34,6 +34,10 @@ export class OfferRdo {
   @Expose()
   public isPremium: boolean;
 
+  // надо?
+  // @Expose()
+  // public isFavorite: boolean;
+
   @Expose()
   public propertyType: PropertyTypeEnum;
 
