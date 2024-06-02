@@ -45,3 +45,9 @@ export function fillDTO<T, V>(someDto: ClassConstructor<T>, plainObject: V) {
     excludeExtraneousValues: true,
   });
 }
+
+export function createErrorObject(message: string) {
+  return {
+    error: message,
+  };
+}

@@ -1,7 +1,7 @@
 import { inject, injectable } from 'inversify';
 import { Request, Response } from 'express';
 
-import { HttpMethod } from '../../libs/rest/index.js';
+import { HttpError, HttpMethod } from '../../libs/rest/index.js';
 import { Logger } from '../../libs/logger/index.js';
 import { Component } from '../../types/index.js';
 
@@ -10,6 +10,7 @@ import { OfferService } from './offer-service.interface.js';
 import { fillDTO } from '../../helpers/index.js';
 import { OfferRdo } from './rdo/offer.rdo.js';
 import { CreateOfferDto } from './dto/create-offer.dto.js';
+import { StatusCodes } from 'http-status-codes';
 
 @injectable()
 export class OfferController extends BaseController {
@@ -41,8 +42,19 @@ export class OfferController extends BaseController {
       CreateOfferDto
     >,
     res: Response,
-  ) {
+  ): Promise<void> {
+    const existOffer = await this.offerService.findById(body.title);
+
+    if (existOffer) {
+      throw new HttpError(
+        StatusCodes.UNPROCESSABLE_ENTITY,
+        `Offer with title «${body.title}» exists.`,
+        'OfferController',
+      );
+    }
+
     const result = await this.offerService.create(body);
+
     this.created(res, fillDTO(OfferRdo, result));
   }
 }
