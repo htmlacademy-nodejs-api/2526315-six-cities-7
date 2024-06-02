@@ -196,7 +196,6 @@ paths:
         '404':
           description: Объявления не найдены.
 
-  /offers/create:
     post:
       tags:
         - offers
@@ -250,8 +249,6 @@ paths:
         '404':
           description: Предложение не найдено
 
-
-  /offers/{offerId}/update:
     patch:
       tags:
         - offers
@@ -292,7 +289,6 @@ paths:
         '409':
           description: Предложение не обновлено из-за ошибки.
 
-  /offers/{offerId}/delete:
     delete:
       tags:
         - offers
@@ -342,7 +338,6 @@ paths:
         '404':
           description: Комменатрии не найдены.
 
-  /comments/{offerId}/create:
     post:
       tags:
         - comments

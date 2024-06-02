@@ -5,6 +5,7 @@ export {
   getNumberOfDifferentItems,
   getErrorMessage,
   generateRandomCoordinatesForTheOffer,
+  fillDTO,
 } from './common.js';
 
 export { getCurrentModuleDirectoryPath } from './file-system.js';
