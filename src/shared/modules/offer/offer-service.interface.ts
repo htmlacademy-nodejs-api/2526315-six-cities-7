@@ -13,6 +13,7 @@ export interface OfferService {
     offerId: string,
     dto: UpdateOfferDto,
   ): Promise<DocumentType<OfferEntity> | null>;
+  findPremium(): Promise<DocumentType<OfferEntity>[]>;
   incCommentCount(offerId: string): Promise<DocumentType<OfferEntity> | null>;
   exists(documentId: string): Promise<boolean>;
   getRating(offerId: string): Promise<number | null>;

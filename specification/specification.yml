@@ -170,12 +170,6 @@ paths:
             type: number
 
         - in: query
-          name: premium
-          required: false
-          schema:
-            type: boolean
-
-        - in: query
           name: favorite
           required: false
           schema:
@@ -224,6 +218,26 @@ paths:
 
         '409':
           description: Объявление не создано из-за ошибки.
+
+  /offers/premium:
+    get:
+      tags:
+        - offers
+      summary: Список премиальных предложений
+      description: Возвращает список премиальных предложений
+
+      responses:
+        '200':
+          description: Список премиальных предложений
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/offerList'
+
+        '404':
+          description: Объявления не найдены
 
   /offers/{offerId}:
     get:
