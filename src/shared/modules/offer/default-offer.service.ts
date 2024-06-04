@@ -1,4 +1,4 @@
-import { inject } from 'inversify';
+import { inject, injectable } from 'inversify';
 import { DocumentType, types } from '@typegoose/typegoose';
 
 import { OfferService } from './offer-service.interface.js';
@@ -11,6 +11,7 @@ import { SortType } from '../../types/enums.js';
 import { UpdateOfferDto } from './dto/update-offer.dto.js';
 import { Types } from 'mongoose';
 
+@injectable()
 export class DefaultOfferService implements OfferService {
   constructor(
     @inject(Component.Logger) private readonly logger: Logger,

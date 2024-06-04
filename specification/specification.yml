@@ -170,12 +170,6 @@ paths:
             type: number
 
         - in: query
-          name: premium
-          required: false
-          schema:
-            type: boolean
-
-        - in: query
           name: favorite
           required: false
           schema:
@@ -196,7 +190,6 @@ paths:
         '404':
           description: Объявления не найдены.
 
-  /offers/create:
     post:
       tags:
         - offers
@@ -226,6 +219,26 @@ paths:
         '409':
           description: Объявление не создано из-за ошибки.
 
+  /offers/premium:
+    get:
+      tags:
+        - offers
+      summary: Список премиальных предложений
+      description: Возвращает список премиальных предложений
+
+      responses:
+        '200':
+          description: Список премиальных предложений
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/offerList'
+
+        '404':
+          description: Объявления не найдены
+
   /offers/{offerId}:
     get:
       tags:
@@ -250,8 +263,6 @@ paths:
         '404':
           description: Предложение не найдено
 
-
-  /offers/{offerId}/update:
     patch:
       tags:
         - offers
@@ -292,7 +303,6 @@ paths:
         '409':
           description: Предложение не обновлено из-за ошибки.
 
-  /offers/{offerId}/delete:
     delete:
       tags:
         - offers
@@ -342,7 +352,6 @@ paths:
         '404':
           description: Комменатрии не найдены.
 
-  /comments/{offerId}/create:
     post:
       tags:
         - comments
